@@ -170,6 +170,7 @@ class Form extends Component {
     let isValid = false;
 
     try {
+      console.log(this.getField(name), this.getFields(), 'form validateField')
       isValid = schema.validateSyncAt(name, this.getField(name));
       this.errors[name] = '';
     } catch ({ message, path }) {
