@@ -166,12 +166,11 @@ class Form extends Component {
   };
 
   validateField = (name = '') => {
-    console.log(this.getField(name), this.getFields(), 'form validateField')
     const { schema } = this.props;
     let isValid = false;
 
     try {
-      isValid = schema.validateSyncAt(name, this.getField(name));
+      isValid = schema.validateSyncAt(name, this.getFields());
       this.errors[name] = '';
     } catch ({ message, path }) {
       if (path.split('.').length > 1) {
