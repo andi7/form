@@ -140,6 +140,7 @@ class Form extends Component {
 
     try {
       isValid = schema.validateSync(values, { abortEarly: false });
+      this.errors = {};
     } catch (e) {
       this.errors = e.inner.reduce((acc, { message, path }) => {
         let error = message;
@@ -151,7 +152,7 @@ class Form extends Component {
           error = {
             key: subkey,
             index: parseInt(index),
-            message,
+            message
           };
         }
 
@@ -178,12 +179,14 @@ class Form extends Component {
         this.errors[name] = {
           key,
           index: parseInt(index),
-          message,
+          message
         };
       } else {
         this.errors[name] = message;
       }
     }
+
+    this.updateComponent(name);
 
     return isValid;
   };
@@ -221,7 +224,7 @@ class Form extends Component {
       updateComponent: this.updateComponent,
       schema: this.props.schema,
       isFieldVisible: this.isFieldVisible,
-      isFieldDisabled: this.isFieldDisabled,
+      isFieldDisabled: this.isFieldDisabled
     },
     values: () => this.getFields(),
     touched: () => [...this.touched],
@@ -238,7 +241,7 @@ class Form extends Component {
     getErrors: this.getErrors,
     resetTouched: this.resetTouched,
     clearFields: this.clearFields,
-    getTouchedValues: this.getTouchedValues,
+    getTouchedValues: this.getTouchedValues
   };
 
   render() {
