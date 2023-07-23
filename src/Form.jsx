@@ -201,6 +201,14 @@ class Form extends Component {
     return this.errors;
   };
 
+  setCustomFieldError = (name = '', message = '') => {
+    this.errors[name] = message;
+  };
+
+  resetErrors = () => {
+    this.errors = {};
+  };
+
   resetTouched = () => {
     this.touched.clear();
   };
@@ -243,7 +251,9 @@ class Form extends Component {
     getErrors: this.getErrors,
     resetTouched: this.resetTouched,
     clearFields: this.clearFields,
-    getTouchedValues: this.getTouchedValues
+    getTouchedValues: this.getTouchedValues,
+    setCustomFieldError: this.setCustomFieldError,
+    resetErrors: this.resetErrors
   };
 
   render() {
