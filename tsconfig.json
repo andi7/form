@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "allowSyntheticDefaultImports": true,
+    "checkJs": false,
+    "esModuleInterop": false,
+    "forceConsistentCasingInFileNames": false,
+    "isolatedModules": true,
+    "jsx": "react",
+    "module": "esnext",
+    "moduleResolution": "node",
+    "lib": ["dom", "esnext"],
+    "resolveJsonModule": false,
+    "skipLibCheck": true,
+    "strict": false,
+    "sourceMap": true,
+    "target": "esnext",
+    "outDir": "build",
+    "baseUrl": ".",
+    "typeRoots": ["./dist/index.d.ts"]
+  },
+  "include": ["."],
+  "exclude": ["node_modules", "dist/index.js"]
+}
