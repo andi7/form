@@ -139,7 +139,8 @@ class Form extends Component {
     let isValid = false;
 
     try {
-      isValid = schema.validateSync(values, { abortEarly: false });
+      schema.validateSync(values, { abortEarly: false });
+      isValid = true;
       this.errors = {};
     } catch (e) {
       this.errors = e.inner.reduce((acc, { message, path }) => {
@@ -171,7 +172,8 @@ class Form extends Component {
     let isValid = false;
 
     try {
-      isValid = schema.validateSyncAt(name, this.getFields());
+      schema.validateSyncAt(name, this.getFields());
+      isValid = true;
       this.errors[name] = '';
     } catch ({ message, path }) {
       if (path.split('.').length > 1) {
