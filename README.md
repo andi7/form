@@ -30,6 +30,11 @@ const [ formApi, setFormApi ] = useState();
 | storeComponent  | `name` = ' ', `ref` | set field with the given **name** to the **ref** |
 | updateComponent | `name` = ' '    | update input with the given **name**     |
 | updateAllComponents |     | update all form     |
+| isFieldVisible | `name` = ' '    | returns a boolean value which indicates if **name** field is visible  |
+| isFieldDisabled | `name` = ' '    | returns a boolean value which indicates if **name** field is disabled  |
+| values |   | get values of all the fields  |
+| touched |   | get a list of all the fields that are touched  |
+| isTouched | `name` = ' '   | returns a boolean value which indicates if **name** field is touched  |
 | getField | `name` = ' '   |get value of the **name**    |
 | getFields |  `names` = [], `path` = ' '   | get values of multiple fields     |
 | setField | `name` = ' ', `value` = ' '    |   set value of the field   |
@@ -40,7 +45,11 @@ const [ formApi, setFormApi ] = useState();
 | validateField |  `name` = ' '  | validate given field based on the **schema** (returns boolean value)  |
 | getError |  name = ' '  | get the error for given field  |
 | getErrors |   | get errors of all the fields  |
+| setCustomFieldError |  `name` = ' ', `message` = ' '   |   set a custom error message to the field   |
+| resetErrors |   | clear all errors   |
+| clearFields |   | clear all fields values  |
 | resetTouched |   | empty fields that are touched   |
+| getTouchedValues |   | get values of the fields that are touched   |
 
 ## Field
 
