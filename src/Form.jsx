@@ -193,6 +193,10 @@ class Form extends Component {
     return isValid;
   };
 
+  validateListOfFields = (fields = []) => {
+    return fields.every((field) => this.validateField(field));
+  };
+
   getError = (name = '') => {
     return this.errors[name] || '';
   };
@@ -203,6 +207,7 @@ class Form extends Component {
 
   setCustomFieldError = (name = '', message = '') => {
     this.errors[name] = message;
+    this.updateComponent(name);
   };
 
   resetErrors = () => {
@@ -247,6 +252,7 @@ class Form extends Component {
     resetFields: this.resetFields,
     validate: this.validate,
     validateField: this.validateField,
+    validateListOfFields: this.validateListOfFields,
     getError: this.getError,
     getErrors: this.getErrors,
     resetTouched: this.resetTouched,
