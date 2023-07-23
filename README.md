@@ -43,6 +43,7 @@ const [ formApi, setFormApi ] = useState();
 | resetFields |    | set all fields to the initial values   |
 | validate |    | validate form base on the **schema** (returns boolean value)  |
 | validateField |  `name` = ' '  | validate given field based on the **schema** (returns boolean value)  |
+| validateListOfFields |  `names` = []   | validate the given fields list and returns a boolean value which indicates if all fields of the list are valid     |
 | getError |  name = ' '  | get the error for given field  |
 | getErrors |   | get errors of all the fields  |
 | setCustomFieldError |  `name` = ' ', `message` = ' '   |   set a custom error message to the field   |
