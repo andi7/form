@@ -203,6 +203,7 @@ class Form extends Component {
 
   setCustomFieldError = (name = '', message = '') => {
     this.errors[name] = message;
+    this.updateComponent(name);
   };
 
   resetErrors = () => {
