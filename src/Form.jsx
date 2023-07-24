@@ -139,7 +139,8 @@ class Form extends Component {
     let isValid = false;
 
     try {
-      isValid = schema.validateSync(values, { abortEarly: false });
+      schema.validateSync(values, { abortEarly: false });
+      isValid = true;
       this.errors = {};
     } catch (e) {
       this.errors = e.inner.reduce((acc, { message, path }) => {
@@ -171,7 +172,8 @@ class Form extends Component {
     let isValid = false;
 
     try {
-      isValid = schema.validateSyncAt(name, this.getFields());
+      schema.validateSyncAt(name, this.getFields());
+      isValid = true;
       this.errors[name] = '';
     } catch ({ message, path }) {
       if (path.split('.').length > 1) {
@@ -191,12 +193,25 @@ class Form extends Component {
     return isValid;
   };
 
+  validateListOfFields = (fields = []) => {
+    return fields.every((field) => this.validateField(field));
+  };
+
   getError = (name = '') => {
     return this.errors[name] || '';
   };
 
   getErrors = () => {
     return this.errors;
+  };
+
+  setCustomFieldError = (name = '', message = '') => {
+    this.errors[name] = message;
+    this.updateComponent(name);
+  };
+
+  resetErrors = () => {
+    this.errors = {};
   };
 
   resetTouched = () => {
@@ -237,11 +252,14 @@ class Form extends Component {
     resetFields: this.resetFields,
     validate: this.validate,
     validateField: this.validateField,
+    validateListOfFields: this.validateListOfFields,
     getError: this.getError,
     getErrors: this.getErrors,
     resetTouched: this.resetTouched,
     clearFields: this.clearFields,
-    getTouchedValues: this.getTouchedValues
+    getTouchedValues: this.getTouchedValues,
+    setCustomFieldError: this.setCustomFieldError,
+    resetErrors: this.resetErrors
   };
 
   render() {

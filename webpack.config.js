@@ -16,11 +16,19 @@ module.exports = {
         test: /(\.jsx|\.js)$/,
         loader: 'babel-loader',
         exclude: /node_modules/
+      },
+      {
+        test: /\.(ts|tsx)$/,
+        exclude: /node_modules/,
+        resolve: {
+          extensions: ['.ts', '.tsx', '.js', '.json']
+        },
+        use: 'ts-loader'
       }
     ]
   },
   resolve: {
-    extensions: ['.jsx', '.js']
+    extensions: ['.jsx', '.js', '.ts']
   },
   externals: {
     react: 'react',

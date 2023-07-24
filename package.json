@@ -1,22 +1,27 @@
 {
   "name": "form",
   "version": "1.0.0",
-  "main": "dist/index.js",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "license": "MIT",
   "scripts": {
     "build": "webpack"
   },
   "dependencies": {
-    "utils": "https://github.com/andi7/utils"
+    "@types/react": "^18.2.15",
+    "react": "^18.2.0",
+    "utils": "https://github.com/andi7/utils",
+    "yup": "^1.2.0"
   },
   "devDependencies": {
-    "webpack": "^4.29.0",
     "@babel/core": "7.0.0-beta.44",
     "@babel/polyfill": "7.0.0-beta.44",
     "@babel/preset-env": "7.0.0-beta.44",
     "@babel/preset-react": "7.0.0-beta.44",
     "@babel/preset-stage-2": "7.0.0-beta.44",
     "babel-loader": "^8.0.0-beta",
+    "ts-loader": "^9.4.4",
+    "webpack": "^4.29.0",
     "webpack-cli": "^3.1.1"
   },
   "peerDependencies": {
